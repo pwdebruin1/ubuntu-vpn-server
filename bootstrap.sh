@@ -36,7 +36,6 @@ function configureDNSMasq {
 
 function configureFirewall {
     echo "Configuring Firewall"
-    curl http://winhelp2002.mvps.org/hosts.txt >> /etc/hosts
     echo 1 > /proc/sys/net/ipv4/ip_forward
     sed -i -e 's/#net.ipv4.ip_forward=1/net.ipv4.ip_forward=1/' /etc/sysctl.conf
     ufw allow ssh
