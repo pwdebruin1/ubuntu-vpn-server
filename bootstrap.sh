@@ -6,7 +6,7 @@ function configureOpenVPN {
     echo "Configuring OpenVPN"
     gunzip -c /usr/share/doc/openvpn/examples/sample-config-files/server.conf.gz > /etc/openvpn/server.conf
     sed -i -e 's/dh dh1024.pem/dh dh2048.pem/' /etc/openvpn/server.conf
-    sed -i -e 's/;push "redirect-gateway def1 bypass-dhcp"/push "redirect-gateway def1 bypass-dhcp"/' /etc/openvpn/server.conf
+    sed -i -e 's/;push "redirect-gateway def1 bypass-dhcp"/push "route 172.16.0.0 255.255.0.0"/' /etc/openvpn/server.conf
     sed '/;push "dhcp-option DNS 208.67.222.222"/d' /etc/openvpn/server.conf
     sed '/;push "dhcp-option DNS 208.67.220.220"/d' /etc/openvpn/server.conf
     echo "dhcp-option DNS 10.8.0.1" >> /etc/openvpn/server.conf
