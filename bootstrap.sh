@@ -1,6 +1,6 @@
 #!/bin/bash 
 
-IPADDR=$(curl -s http://169.254.169.254/metadata/v1/interfaces/public/0/ipv4/address)
+IPADDR=$(curl -s http://169.254.169.254/latest/meta-data/public-ipv4)
 
 function configureOpenVPN {
     echo "Configuring OpenVPN"
